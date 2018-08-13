@@ -1,6 +1,22 @@
+def onSpawn(event):
+    pet.moveXY(43, 12)
+pet.on("spawn", onSpawn)
+
+twoPi = 2 * Math.PI
+
 # Вот несколько функций для рисования фигур:
 def degreesToRadians(degrees):
     return (degrees/360)*twoPi
+
+def drawCircle(x, y, size):
+    angle = 0
+    hero.toggleFlowers(False)
+    while angle <= Math.PI * 2:
+        newX = x + (size * Math.cos(angle))
+        newY = y + (size * Math.sin(angle))
+        hero.moveXY(newX, newY)
+        hero.toggleFlowers(True)
+        angle += 0.2
 
 def drawPolyStars(center, radius, sides, skips, startAngle):
     angle = startAngle
@@ -80,3 +96,31 @@ def drawSpiral(center, size, loopNum, startAngle):
     newX = x + size * Math.cos(endAngle)
     newY = y + size * Math.sin(endAngle)
     hero.moveXY(newX, newY)
+
+redX = {"x": 28, "y": 36}
+whiteX = {"x": 60, "y": 36}
+spiral = {"x": 60, "y": 42}
+# --------------------------------------------------
+hero.say("мяу!")
+#setFlowerColor
+hero.setFlowerColor("random")
+# Нарисуй 3D-коробку, используя `drawPolygon` и `drawSpokes`, центр на красной отметке X, размер 10.
+# Простейший расчёт углов - для "вверх" и "вниз".
+# Функции рисования работают с углами в радианах. Если ты привык к градусам, используй для конвертации функцию `degreesToRadians`.
+#drawPolygon(center, size, number of sides, start angle)
+drawPolygon(redX, 10, 6, Math.PI / 6)
+#drawSpokes(center, size, number of spokes, start angle)
+drawSpokes(redX, 10, 3, Math.PI / 6)
+# Нарисуй нагрудник со звездой, используя функции `drawStar` и `drawSpiral`.
+# Центр звезды - на белой отметке X, её размер равен 6.
+# Размер спиралей равен 15. Чтобы получить обратную спираль, задай отрицательное число петель.
+#setFlowerColor
+hero.setFlowerColor("yellow")
+#drawStar(center, size, sides, skips, startAngle)
+drawStar(whiteX, 6, 7, 2, Math.PI / 2)
+#setFlowerColor
+hero.setFlowerColor("purple")
+#drawSpiral(center, size,  number of loops, start angle)
+drawSpiral(spiral, 15, 1, 3/4*(Math.PI * 2))
+#drawSpiral(center, size,  number of loops, start angle)
+drawSpiral(spiral, 15, -1, 3/4*(Math.PI * 2))
