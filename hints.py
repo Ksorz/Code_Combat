@@ -13,8 +13,9 @@ list.copy()                    # Поверхностная копия масс�
 list.clear()                   # Очищает массив.
 
 event.speaker.id # Наименование, имя объекта.
+len.length
 
-celadia = findByName("Celadia", friends)
+for i in range(len(unit1.id) - 1, -1, -1) # iterate the yetis list in the reverse order.
 
 event.message.toLowerCase() # Перевод текста в нижний регистр, (toUpperCase - верхний).
 
@@ -28,3 +29,6 @@ for x in range(40, 81, 20): # От 40 до 81 с шагом 20.
     hero.moveXY(x, 60) # x1 - 40; x2 - 60; x3 - 80
 
 target = targets.pop(0) # Удаляет и возвращает (target) элемент (0) массива (targets). () - последний элемент.
+
+s = "  \t a string example\t  "
+trimmed = string.trim() # string = "   a string example   ", trimmed = "a string example"
